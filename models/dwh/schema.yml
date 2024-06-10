@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: dim_country
+    description: "Table for country dimension"
+    columns:
+      - name: country_key
+        description: "The primary key for dim_country table"
+        data_tests:
+          - unique
+          - not_null
+  - name: dim_date
+    description: "Table for date dimension"
+    columns:
+      - name: date_key
+        description: "The primary key for dim_date table"
+        data_tests:
+          - unique
+          - not_null
+  - name: dim_sources
+    description: "Table for date dimension"
+    columns:
+      - name: source_key
+        description: "The primary key for dim_sources table"
+        data_tests:
+          - unique
+          - not_null
+  - name: dim_user
+    description: "Table for date dimension"
+    columns:
+      - name: user_key
+        description: "The primary key for dim_user table"
+        data_tests:
+          - unique
+          - not_null
