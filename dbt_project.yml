@@ -34,6 +34,12 @@ models:
     stg:
       +materialized: table
       +schema: stg
+      +tag: stg
     dwh:
       +materialized: view
       +schema: dwh
+      +tag: dwh
+    pub:
+      +materialized: views
+      +schema: pub
+      +tag: pub
