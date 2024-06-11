@@ -45,7 +45,7 @@ with source_data as (
       end as page_type
     , case
         when lower(device_raw) like '%android%' then 'Android'
-        when lower(device_raw) like '%iphone%' then 'iPhone's
+        when lower(device_raw) like '%iphone%' then 'iPhone'
         when lower(device_raw) like '%ipad%' then 'iPad'
         when lower(device_raw) like '%ipod%' then 'iPod'
         when lower(device_raw) like '%macintosh%' then 'Macintosh'
@@ -53,6 +53,13 @@ with source_data as (
         when lower(device_raw) like '%windows%' then 'Windows'
         else 'Others'
       end as device
+    , case
+        when lower(user_agent) like '%chrome%' then 'Google Chrome'
+        when lower(user_agent) like '%safari%' then 'Apple Safari'
+        when lower(user_agent) like '%firefox%' then 'Mozilla Firefox'
+        when lower(user_agent) like '%edge%' or lower(user_agent) like '%micro%' or lower(user_agent) like '%soft%' then 'Microsoft Edge'
+        else 'Others'
+      end as browser_name
     , 'FedEx Web' as source
     , {{ dbt.current_timestamp() }}::timestamp with time zone as stg_inserted_dt
   from

@@ -1,0 +1,24 @@
+fedex_dbt_assignment:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: fbrbxlo-zq13195
+
+      # User/password auth
+      user: VijayPalanisamy
+      password: 5XJrWiy5SeY-7-a
+      role: ACCOUNTADMIN
+      database: FedEx
+      warehouse: COMPUTE_WH
+      schema: FE
+      threads: 10
+      client_session_keep_alive: False
+      query_tag: dbt
+
+      # optional
+      connect_retries: 0 # default 0
+      connect_timeout: 10 # default: 10
+      retry_on_database_errors: False # default: false
+      retry_all: False  # default: false
+      reuse_connections: False # default: false

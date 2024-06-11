@@ -7,9 +7,9 @@
 
 
 with source_data as (
-  select browser_used as browser_name, max(stg_inserted_dt) as stg_inserted_dt
+  select browser_name, max(stg_inserted_dt) as stg_inserted_dt
   from {{ref('stg_fedex_case_data_web')}}
-  group by browser_used
+  group by browser_name
   order by browser_name
 )
 
