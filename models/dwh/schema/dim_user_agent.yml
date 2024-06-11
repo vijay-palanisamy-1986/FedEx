@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_user_agent
+    description: "Table for user agent dimension"
+    columns:
+      - name: user_agent_key
+        description: "The primary key for dim_user_agent table"
+        data_tests:
+          - unique
+          - not_null

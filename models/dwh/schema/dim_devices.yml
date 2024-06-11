@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_devices
+    description: "Table for device dimension"
+    columns:
+      - name: device_key
+        description: "The primary key for dim_devices table"
+        data_tests:
+          - unique
+          - not_null

@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_sources
+    description: "Table for source dimension"
+    columns:
+      - name: source_key
+        description: "The primary key for dim_sources table"
+        data_tests:
+          - unique
+          - not_null

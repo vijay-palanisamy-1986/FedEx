@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: dim_country
+    description: "Table for country dimension"
+    columns:
+      - name: country_key
+        description: "The primary key for dim_country table"
+        data_tests:
+          - unique
+          - not_null
+      - name: country_name
+        description: "The primary business field for dim_country table"
+        data_tests:
+          - unique:
+              config:
+                store_failures: true
+          - not_null:
+              config:
+                store_failures: true
+      - name: Region
+        description: Region that country belongs to
+        data_tests:
+          - not_null:
+              config:
+                store_failures: true
+          - accepted_values:
+              values: ['NA', 'LA', 'EMEA','APAC']
+              config:
+                store_failures: true

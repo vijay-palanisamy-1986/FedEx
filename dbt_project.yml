@@ -43,3 +43,8 @@ models:
       +materialized: views
       +schema: pub
       +tag: pub
+    tests:
+      +materialized: views
+      +schema: validation
+      +tag:
+        - validation

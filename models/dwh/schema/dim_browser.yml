@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_browser
+    description: "Table for web browser dimension"
+    columns:
+      - name: browser_key
+        description: "The primary key for dim_browser table"
+        data_tests:
+          - unique
+          - not_null

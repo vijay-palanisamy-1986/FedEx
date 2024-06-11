@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_page
+    description: "Table for web page dimension"
+    columns:
+      - name: page_key
+        description: "The primary key for dim_page table"
+        data_tests:
+          - unique
+          - not_null

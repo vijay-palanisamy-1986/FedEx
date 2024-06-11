@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: "Table for date dimension"
+    columns:
+      - name: date_key
+        description: "The primary key for dim_date table"
+        data_tests:
+          - unique
+          - not_null

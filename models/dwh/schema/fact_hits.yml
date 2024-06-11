@@ -1,0 +1,73 @@
+version: 2
+
+models:
+  - name: fact_hits
+    description: "Table for HITs"
+    columns:
+      - name: hit_key
+        description: "The primary key for fact_hits table"
+        data_tests:
+          - unique
+          - not_null
+
+      - name: browser_key
+        description: "The reference key for dim_browser table"
+        data_tests:
+          - relationships:
+              to: ref('dim_browser')
+              field: browser_key
+
+      - name: country_key
+        description: "The reference key for dim_country table"
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_country')
+              field: country_key
+
+      - name: hit_date_key
+        description: "The reference key for dim_date table"
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+
+      - name: device_key
+        description: "The reference key for dim_devices table"
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_devices')
+              field: device_key
+
+      - name: page_key
+        description: "The reference key for dim_page table"
+        data_tests:
+          - relationships:
+              to: ref('dim_page')
+              field: page_key
+
+      - name: source_key
+        description: "The reference key for dim_sources table"
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_sources')
+              field: source_key
+
+      - name: user_agent_key
+        description: "The reference key for dim_user_agent table"
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_user_agent')
+              field: user_agent_key
+
+      - name: user_key
+        description: "The reference key for dim_user table"
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_user')
+              field: user_key

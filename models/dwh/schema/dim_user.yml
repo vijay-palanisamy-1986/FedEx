@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_user
+    description: "Table for user dimension"
+    columns:
+      - name: user_key
+        description: "The primary key for dim_user table"
+        data_tests:
+          - unique
+          - not_null
