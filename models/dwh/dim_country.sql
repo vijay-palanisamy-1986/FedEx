@@ -3,13 +3,13 @@
         , unique_key = 'country_key'
         ) }}
 
-{% set cols_country_key = ['country_name_short'] %}
+{% set cols_country_key = ['lower(country_name_short)'] %}
 
 
 with source_data as (
   select 'United States of America' as country_name, 'USA' as country_name_short, 'NA' as region
   union
-  select 'Netherlands' as country_name, 'NL' as country_name_short, 'EU' as region
+  select 'Netherlands' as country_name, 'NL' as country_name_short, 'EMEA' as region
 )
 
 select

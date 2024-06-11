@@ -30,7 +30,7 @@ with source_data as (
   union
   select
     {{ dbt_utils.generate_surrogate_key(cols_source_key) }} as source_key
-    , TO_VARCHAR(hit_date::date, 'YYYYMMDD') as hit_date_key
+    , TO_VARCHAR(hit_date::date, 'YYYYMMDD') as date_key
     , {{ dbt_utils.generate_surrogate_key(cols_country_key) }} as country_key
     , {{ dbt_utils.generate_surrogate_key(cols_device_key) }} as device_key
     , {{ dbt_utils.generate_surrogate_key(cols_user_key) }} as user_key
