@@ -23,7 +23,6 @@ with source_data as (
     , {{ dbt_utils.generate_surrogate_key(cols_user_key_agent) }} as user_agent_key
     , {{ dbt_utils.generate_surrogate_key(cols_page_key) }} as page_key
     , {{ dbt_utils.generate_surrogate_key(cols_browser_key) }} as browser_key
-    , user_agent
     , hit_id
   from
     {{ref('stg_fedex_case_data_web')}}
@@ -36,8 +35,7 @@ with source_data as (
     , {{ dbt_utils.generate_surrogate_key(cols_user_key) }} as user_key
     , {{ dbt_utils.generate_surrogate_key(cols_user_key_agent) }} as user_agent_key
     , null as browser_key
-    , null as page_key
-    , user_agent
+    , null as page_key    
     , 1 as hit_id -- as there is no HIT id for APP and we assume 1 record per 1 hit is given in CSV file
   from
     {{ref('stg_fedex_case_data_app')}}
@@ -45,17 +43,17 @@ with source_data as (
 
 , source_data_final as (
   select
-    sdf.source_key
-    , sdf.hit_date_key
-    , sdf.country_key
-    , sdf.device_key
-    , sdf.user_key
-    , sdf.user_agent_key
-    , sdf.page_key
+    source_key
+    , hit_date_key
+    , country_key
+    , device_key
+    , user_key
+    , user_agent_key
+    , page_key
     , browser_key
-    , count(sdf.hit_id) hit_counts
+    , count(hit_id) hit_counts
   from
-    source_data sdf
+    source_data
   group by all
 )
 
