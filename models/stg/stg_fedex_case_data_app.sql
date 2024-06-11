@@ -16,13 +16,13 @@ with source_data as (
     , user_id
     , user_agent
     , case
-        when lower(device_raw) like '%android%' then 'Android'
+        when lower(user_agent) like '%android%' then 'Android'
         when lower(device_raw) like '%iphone%' then 'iPhone'
         when lower(device_raw) like '%ipad%' then 'iPad'
         when lower(device_raw) like '%ipod%' then 'iPod'
         when lower(device_raw) like '%macintosh%' then 'Macintosh'
-        when lower(device_raw) like '%linux%' then 'Linux'
         when lower(device_raw) like '%windows%' then 'Windows'
+        when lower(device_raw) like '%linux%' then 'Linux'
         else 'Others'
       end as device
     , 'FedEx App' as source
