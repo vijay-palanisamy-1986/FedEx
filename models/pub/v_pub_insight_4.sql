@@ -11,7 +11,7 @@ with cte_hit_count_source as (
 
 , cte_hit_count_device as (
     select
-        s.source, d.device, sum(hit_counts) as device_total_hit_count
+        s.source, d.platform, sum(hit_counts) as device_total_hit_count
     from
         {{ref('fact_hits')}} f
         inner join {{ref('dim_sources')}} s on s.source_key = f.source_key and s.source = 'FedEx App'
