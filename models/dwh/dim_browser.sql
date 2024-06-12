@@ -7,10 +7,12 @@
 
 
 with source_data as (
-  select browser_name, max(stg_inserted_dt) as stg_inserted_dt
+  select
+    {{get_web_field_browser_name('user_agent')}} as browser_name
+    , max(stg_inserted_dt) as stg_inserted_dt
   from {{ref('stg_fedex_case_data_web')}}
-  group by browser_name
-  order by browser_name
+  group by all
+  order by 1
 )
 
 select

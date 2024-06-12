@@ -7,9 +7,13 @@
 
 
 with source_data as (
-  select page_name, page_type, max(stg_inserted_dt) as stg_inserted_dt
-  from {{ref('stg_fedex_case_data_web')}}
-  group by page_name, page_type
+  select
+    page_name
+    , {{get_web_field_page_type('page_name')}} as page_type
+    , max(stg_inserted_dt) as stg_inserted_dt
+  from
+    {{ref('stg_fedex_case_data_web')}}
+  group by all
 )
 
 select distinct
